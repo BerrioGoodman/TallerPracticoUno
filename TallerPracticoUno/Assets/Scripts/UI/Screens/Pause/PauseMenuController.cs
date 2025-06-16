@@ -49,7 +49,8 @@ public class PauseMenuController : BaseController
 
     private void HandleSettings()
     {
-        throw new NotImplementedException();
+        UIManager.Instance.Hide(ScreenType.PauseMenu);
+        UIManager.Instance.Show<SettingsMenuController>(ScreenType.SettingsMenu);
     }
 
     private void HandleResume()
