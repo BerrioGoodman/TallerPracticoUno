@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6a9b07d7699114b9036a4ce9de5515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: 20e341b1d63074246ad521dd8c039ccc, type: 2}
 --- !u!4 &146871164
 Transform:
   m_ObjectHideFlags: 0
@@ -280,7 +281,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -300,6 +301,8 @@ MonoBehaviour:
   screenEntries:
   - screenType: 1
     screenPrefab: {fileID: 4378921712577384126, guid: 9d0bc9b034c4017489d49328975c6e8a, type: 3}
+  - screenType: 2
+    screenPrefab: {fileID: 665238200275331254, guid: 85f5a799d7f84b54faa184778acf931f, type: 3}
 --- !u!224 &260217327
 RectTransform:
   m_ObjectHideFlags: 0
