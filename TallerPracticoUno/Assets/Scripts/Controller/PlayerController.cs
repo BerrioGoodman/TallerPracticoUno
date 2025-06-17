@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,23 +7,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputReader input;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float gravity;//Must be soft
+    [SerializeField] private float multiplierSpeed;
     [SerializeField] private Transform cam;
     private Vector2 moveDirection;
     private Vector2 lookDirection;
-    private bool isJumping;
+    private Vector3 velocity;
+    private Vector3 externalForce;
+    private CharacterController controller;
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
     void Start()
     {
         input.MoveEvent += HandleMove;
         input.LookEvent += HandleLook;
-        input.JumpEvent += HandleJump;
-        input.JumpCancelledEvent += HandleCancelledJump;
     }
     void Update()
     {
+        ApplyGravity();
         Move();
         Look();
-        Jump();
+        DecayExternalForce();
     }
     private void HandleMove(Vector2 dir)
     {
@@ -32,28 +39,24 @@ public class PlayerController : MonoBehaviour
     {
         lookDirection = di;
     }
-    private void HandleJump()
+    private void ApplyGravity()
     {
-        isJumping = true;
-    }
-    private void HandleCancelledJump()
-    {
-        isJumping = false;
+
+        velocity.y += gravity * Time.deltaTime;
     }
     private void Move()
     {
-        if (moveDirection == Vector2.zero) return;
-        /*transform.position += new Vector3(x: moveDirection.x, y: 0, z: moveDirection.y) * (speed * Time.deltaTime);
-        Vector3 forward = cam.forward;
-        Vector3 right = cam.right;
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();*/
+        Vector3 movement = Vector3.zero;
         Vector3 movementDirection = cam.forward * moveDirection.y + cam.right * moveDirection.x;
         movementDirection.y = 0;
         movementDirection.Normalize();
-        transform.position += (movementDirection) * (speed * Time.deltaTime);
+        Vector3 direction = movementDirection * speed;
+
+        //Combining gravity, movement and wind
+        Vector3 finalMove = direction;
+        finalMove.y = velocity.y;
+        finalMove += externalForce;
+        controller.Move(finalMove * Time.deltaTime);
     }
     private void Look()
     {
@@ -67,11 +70,19 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
-    private void Jump()
+    private void DecayExternalForce()
     {
-        if (isJumping)
-        {
-            transform.position += new Vector3(x: 0, y: 1, z: 0) * (jumpSpeed * Time.deltaTime);
-        }
+        externalForce = Vector3.Lerp(externalForce, Vector3.zero, Time.deltaTime * 0.5f);
+    }
+    //Wind
+    public void ApplyExternalForce(Vector3 wind, float windSpeed)
+    {
+        if (wind == Vector3.zero) return;
+        Vector3 speed = wind.normalized * windSpeed;
+        //We use the y component of the wind
+        velocity.y = speed.y;
+        //Only use horizontal components for external force
+        speed.y = 0;
+        externalForce += speed;
     }
 }
