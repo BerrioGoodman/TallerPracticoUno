@@ -17,6 +17,8 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action AttackCancelledEvent;
     public event Action PauseEvent;
     public event Action ResumeEvent;
+    public event Action DrawObject;
+    public event Action DrawObjectCancelled;
     private GameInput gameInput;
     private void OnEnable()
     {
@@ -116,6 +118,18 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (context.phase == InputActionPhase.Canceled)
         {
             SprintCancelledEvent?.Invoke();
+        }
+    }
+
+    public void OnDrawObject(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            DrawObject?.Invoke();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            DrawObjectCancelled?.Invoke();
         }
     }
 }
