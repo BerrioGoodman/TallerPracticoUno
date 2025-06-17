@@ -1,20 +1,52 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private InputReader input;
-    [SerializeField] private GameObject pauseMenu;
-    void Start()
+    public static GameManager Instance { get; private set; }
+    
+    [Header("Dependecies")]
+    [Tooltip("Arrastra aquí tu asset InputReader")]
+    [SerializeField] private InputReader inputReader;
+    
+    private bool isGamePaused = false;
+
+    private void Awake()
     {
-        input.PauseEvent += HandlePause;
-        input.ResumeEvent += HandleResume;
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return; 
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    private void HandlePause()
+
+    private void Start()
     {
-        pauseMenu.SetActive(true);
+        UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
     }
-    private void HandleResume()
+
+    private void OnEnable()
     {
-        pauseMenu.SetActive(false);
+        inputReader.PauseEvent += TogglePause;
+    }
+
+    private void OnDisable()
+    {
+        inputReader.PauseEvent -= TogglePause;
+    }
+
+    private void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+        if (isGamePaused)
+        {
+            UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
+        }
+        else
+        {
+            UIManager.Instance.Hide(ScreenType.PauseMenu);
+        }
     }
 }
