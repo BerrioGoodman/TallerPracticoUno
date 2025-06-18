@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float gravity;//Must be soft
     [SerializeField] private float multiplierSpeed;
+    [SerializeField] private bool isMultiplierOn;
+    [SerializeField] private float multiplierTime;
     [SerializeField] private Transform cam;
     private Vector2 moveDirection;
     private Vector2 lookDirection;
@@ -84,5 +87,18 @@ public class PlayerController : MonoBehaviour
         //Only use horizontal components for external force
         speed.y = 0;
         externalForce += speed;
+    }
+    public void ActivateMultiplier()
+    {
+        if (!isMultiplierOn) StartCoroutine(MultiplierRoutine());
+    }
+    private IEnumerator MultiplierRoutine()
+    {
+        isMultiplierOn = true;
+        float normalSpeed = speed;
+        speed *= multiplierSpeed;
+        yield return new WaitForSeconds(multiplierTime);
+        speed = normalSpeed;
+        isMultiplierOn = false;
     }
 }
