@@ -6,6 +6,7 @@ public abstract class BaseController : MonoBehaviour
 {
     protected CanvasGroup mainCanvasGroup;
 
+
     protected virtual void Awake()
     {
         mainCanvasGroup = GetComponent<CanvasGroup>();
