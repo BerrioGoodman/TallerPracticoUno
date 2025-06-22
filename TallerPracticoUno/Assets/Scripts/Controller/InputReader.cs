@@ -102,7 +102,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     public void OnResume(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Canceled)
+        if (context.phase == InputActionPhase.Performed)
         {
             ResumeEvent?.Invoke();
             SetGameplay();

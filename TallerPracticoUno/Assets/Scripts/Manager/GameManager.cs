@@ -29,24 +29,27 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        inputReader.PauseEvent += TogglePause;
+        inputReader.PauseEvent += SetPause;
+        inputReader.ResumeEvent += SetResume;
     }
 
     private void OnDisable()
     {
-        inputReader.PauseEvent -= TogglePause;
+        inputReader.PauseEvent -= SetPause;
+        inputReader.ResumeEvent -= SetResume;
     }
 
-    private void TogglePause()
+    private void SetPause()
     {
-        isGamePaused = !isGamePaused;
-        if (isGamePaused)
-        {
-            UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
-        }
-        else
-        {
-            UIManager.Instance.Hide(ScreenType.PauseMenu);
-        }
+        isGamePaused = true;
+
+        UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
+    }
+
+    private void SetResume()
+    { 
+        isGamePaused = false;
+        
+        UIManager.Instance.Hide(ScreenType.PauseMenu);
     }
 }
