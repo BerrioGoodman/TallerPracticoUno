@@ -19,6 +19,8 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action ResumeEvent;
     public event Action DrawObject;
     public event Action DrawObjectCancelled;
+    public event Action CrouchEvent;
+    public event Action CrouchCancelledEvent;
     private GameInput gameInput;
     private void OnEnable()
     {
@@ -131,5 +133,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         {
             DrawObjectCancelled?.Invoke();
         }
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            CrouchEvent?.Invoke();
+        if (context.phase == InputActionPhase.Canceled)
+            CrouchCancelledEvent?.Invoke();
     }
 }

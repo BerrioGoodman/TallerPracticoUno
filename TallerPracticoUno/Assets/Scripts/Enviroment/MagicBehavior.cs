@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MagicBehavior : MonoBehaviour
@@ -72,5 +73,10 @@ public class MagicBehavior : MonoBehaviour
                 yield return new WaitForSeconds(delay);
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

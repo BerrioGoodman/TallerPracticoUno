@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,85 +7,88 @@ public class MagicReceiver : MonoBehaviour
 {
     [Header("Settings")]
     public bool hasMagic;
-    [SerializeField] private float propagationRadius;
-    [SerializeField] private float transitionDuration;
+    [SerializeField] private float transition;
     [SerializeField] private float delay;
-    [Header("Visuals")]
-    [SerializeField] private Color darkColor = Color.black;
-    [SerializeField] private Color lightColor = Color.white;
-    [SerializeField] private Color darkEmission = Color.black;
-    [SerializeField] private Color lightEmission = Color.white;
-    private Material material;
+    [Header("Initial State")]
+    [SerializeField] private Material darkMaterial;
+    [SerializeField] private Material originalMaterial;
     private Renderer rend;
     private Coroutine MagicRoutine;
+    private List<MagicReceiver> nearObjects = new List<MagicReceiver>();
     private void Awake()
     {
         rend = GetComponent<Renderer>();
-        material = new Material(rend.material);
-        rend.material = material;
-        SetMagic(false, instant: true);
+        ApplyMaterial(darkMaterial);
+        hasMagic = false;
     }
     public void SetMagic(bool magic, bool instant = false)
     {
-        if (hasMagic && magic) return;
+        if (hasMagic == magic) return;
         hasMagic = magic;
-        if (MagicRoutine != null)
-        {
-            StopCoroutine(MagicRoutine);
-        }
-        MagicRoutine = StartCoroutine(magic ? GradualMagic(instant) : GradualMagicDown(instant));
+        if (MagicRoutine != null) StopCoroutine(MagicRoutine);
+        MagicRoutine = StartCoroutine(GradualMagicUp(magic ? originalMaterial : darkMaterial, instant));
     }
-    private IEnumerator GradualMagic(bool instant)
+    private IEnumerator GradualMagicUp(Material targetMaterial, bool instant)
     {
-        float t = 0;
-        Color startColor = material.color;
-        Color startEmission = material.GetColor("_EmissionColor");
         if (instant)
         {
-            material.color = lightColor;
-            material.SetColor("_EmissionColor", lightEmission);
+            ApplyMaterial(targetMaterial);
+            if (hasMagic) StartCoroutine(PropagateMagic());
             yield break;
         }
-        while (t < 1)
-        {
-            t += Time.deltaTime / transitionDuration;
-            material.color = Color.Lerp(startColor, lightColor, t);
-            material.SetColor("_EmissionColor", Color.Lerp(startEmission, lightEmission, t));
-            yield return null;
-        }
-        StartCoroutine(PropagateMagic());
-    }
-    private IEnumerator GradualMagicDown(bool instant)
-    {
+        Material currentMaterial = rend.material;
         float t = 0;
-        Color startColor = material.color;
-        Color startEmission = material.GetColor("_EmissionColor");
-        if (instant)
-        {
-            material.color = darkColor;
-            material.SetColor("_EmissionColor", darkEmission);
-            yield break;
-        }
+        Color startColor = currentMaterial.color;
+        Color startEmission = currentMaterial.GetColor("_EmissionColor");
+        Color targetColor = targetMaterial.color;
+        Color targetEmission = targetMaterial.GetColor("_EmissionColor");
         while (t < 1)
         {
-            t += Time.deltaTime / transitionDuration;
-            material.color = Color.Lerp(startColor, darkColor, t);
-            material.SetColor("_EmissionColor", Color.Lerp(startEmission, darkEmission, t));
+            t += Time.deltaTime / transition;
+            Color lerpedColor = Color.Lerp(startColor, targetColor, t);
+            Color lerpEmission = Color.Lerp(startEmission, targetEmission, t);
+            currentMaterial.color = lerpedColor;
+            currentMaterial.SetColor("_EmissionColor", lerpEmission);
             yield return null;
         }
+        ApplyMaterial(targetMaterial);
+        if (hasMagic)
+        {
+            StartCoroutine(PropagateMagic());
+        }
+    }
+    private void ApplyMaterial(Material mat)
+    {
+        rend.material = new Material(mat);
     }
     public IEnumerator PropagateMagic()
     {
         yield return new WaitForSeconds(delay);
-        Collider[] close = Physics.OverlapSphere(transform.position, propagationRadius);
-        foreach (Collider col in close)
+        foreach (MagicReceiver neighbor in nearObjects)
         {
-            MagicReceiver near = col.GetComponent<MagicReceiver>();
-            if (near != null && !near.hasMagic)
+            if (neighbor != null && !neighbor.hasMagic)
             {
-                near.SetMagic(true);
+                neighbor.SetMagic(true);
                 yield return new WaitForSeconds(delay);
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        MagicReceiver neighbor = other.GetComponent<MagicReceiver>();
+        if (neighbor != null && neighbor != this)
+        {
+            if (!nearObjects.Contains(neighbor)) nearObjects.Add(neighbor);
+            if (!neighbor.nearObjects.Contains(this)) neighbor.nearObjects.Add(this);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        MagicReceiver neighbor = other.GetComponent<MagicReceiver>();
+        if (neighbor != null)
+        {
+            nearObjects.Remove(neighbor);
+            neighbor.nearObjects.Remove(this);
         }
     }
 }
