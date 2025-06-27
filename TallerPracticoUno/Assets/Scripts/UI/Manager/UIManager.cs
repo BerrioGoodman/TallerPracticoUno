@@ -61,8 +61,9 @@ public class UIManager : MonoBehaviour
             
             return newInstance as T;
         }
-        
+#if UNITY_EDITOR
         Debug.LogError($"UIManager: No se encontró un prefab para el screenType: {screenType}");
+#endif
         return null;
     }
 
