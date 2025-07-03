@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/VFX.unity
+    guid: 52a0071f98f8e1840be29c40cff56fb1
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 9c14fc10df210f742a4c194838b0d2b4
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Mechanics.unity
+    guid: ff4d747363a872d408a7428e8205ea48
+  - enabled: 1
+    path: Assets/Scenes/DevAlejo.unity
+    guid: 958c5cc76fb44344985da148378e964a
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: ee2fecc2b6987d74cb677dfae5126c8b, type: 3}
   m_UseUCBPForAssetBundles: 0
