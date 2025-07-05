@@ -2,6 +2,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/Movement/Glide")]
 public class GlideMovement : ScriptableObject, IMovementSystem
 {
+    [SerializeField] private float damagePerSecond;
     public void Move(PlayerController player)
     {
         Vector3 dir = player.Cam.forward * player.MoveInput.y + player.Cam.right * player.MoveInput.x;
@@ -21,5 +22,9 @@ public class GlideMovement : ScriptableObject, IMovementSystem
     }
     public void Crouch(PlayerController player)
     {
+    }
+    public float GetDurabilityDamage()
+    {
+        return damagePerSecond;
     }
 }

@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Inputs")]
     [SerializeField] private InputReader input;
+    [Header("Player Stats")]
+    [SerializeField] private FlameStats_SO stats;
     [Header("Movement Scriptable Objects")]
     [SerializeField] private LandedMovement landed;
     [SerializeField] private GlideMovement glide;
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private int jumpsRemaining = 0;
     private IMovementSystem currentMovement;
+    private Coroutine durabilityCoroutine;
     public float BaseSpeed => isSprinting ? baseSpeed * 2 : baseSpeed;
     public float Gravity => gravity;
     public Vector2 MoveInput => moveDirection;
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
         input.SprintEvent += OnSprintStart;
         input.SprintCancelledEvent += OnSprintStop;
         input.CrouchEvent += OnCrouch;
+        stats.OnDurabilityChanged += OnDurabilityChanged;
     }
     private void OnDisable()
     {
@@ -68,6 +73,7 @@ public class PlayerController : MonoBehaviour
         input.SprintEvent -= OnSprintStart;
         input.SprintCancelledEvent -= OnSprintStop;
         input.CrouchEvent -= OnCrouch;
+        stats.OnDurabilityChanged -= OnDurabilityChanged;
     }
     void Update()
     {
@@ -140,8 +146,19 @@ public class PlayerController : MonoBehaviour
         baseSpeed = originalSpeed;
         isMultiplierOn = false;
     }
+    private IEnumerator DurabilityCoroutine()
+    {
+        while (true)
+        {
+            float damage = currentMovement.GetDurabilityDamage();
+            float currentDurability = stats.GetCurrentState().Item1;
+            if (currentDurability > 0) stats.DecreaseDurability(damage * Time.deltaTime);
+            yield return null;
+        }
+    }
     public void SetMovement(MovementType type)
     {
+        movementType = type;
         switch (type)
         {
             case MovementType.Landed:
@@ -154,6 +171,8 @@ public class PlayerController : MonoBehaviour
                 currentMovement = underwater;
                 break;
         }
+        if (durabilityCoroutine != null) StopCoroutine(durabilityCoroutine);
+        durabilityCoroutine = StartCoroutine(DurabilityCoroutine());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -183,5 +202,13 @@ public class PlayerController : MonoBehaviour
                 Velocity += Vector3.up * Gravity * Time.deltaTime;
             }
         }
+    }
+    public void RechargeDurability()
+    {
+        stats.Recharge();
+    }
+    private void OnDurabilityChanged(float current, float max)
+    {
+        Debug.Log($"Durabilidad actual: {current} / {max}");
     }
 }

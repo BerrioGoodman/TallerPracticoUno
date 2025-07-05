@@ -6,4 +6,6 @@ public interface IMovementSystem
     void ApplyGravity(PlayerController player);
     void HandleJump(PlayerController player);
     void Crouch(PlayerController player);
+
+    float GetDurabilityDamage();
 }
