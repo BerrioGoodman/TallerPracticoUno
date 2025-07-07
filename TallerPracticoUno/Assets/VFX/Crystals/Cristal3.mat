@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_CrystalShader
+  m_Name: Cristal3
   m_Shader: {fileID: -6465566751694194690, guid: 112522ff602de6b44967677137d2a318, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,9 +45,9 @@ Material:
     - _Smoothness: 0
     - _TopLine: 0.65
     m_Colors:
-    - _BottomColor: {r: 5.8979516, g: 0.74559003, b: 1.1847129, a: 1}
-    - _Color: {r: 47.937256, g: 5.3364077, b: 47.09099, a: 1}
-    - _TopColor: {r: 0.16822504, g: 0.2951948, b: 1.0742086, a: 1}
+    - _BottomColor: {r: 0, g: 0.1808366, b: 0.40754724, a: 1}
+    - _Color: {r: 92.2566, g: 21.735847, b: 10.626413, a: 1}
+    - _TopColor: {r: 2, g: 0, b: 4, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3015953185221707817
