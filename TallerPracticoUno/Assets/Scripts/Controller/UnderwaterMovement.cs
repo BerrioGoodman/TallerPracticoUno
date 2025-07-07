@@ -6,6 +6,7 @@ public class UnderwaterMovement : ScriptableObject, IMovementSystem
     [SerializeField] private float bouyancy;
     [SerializeField] private float verticalDrag;
     [SerializeField] private float horizontalDrag;
+    [SerializeField] private float damagePerSecond;
     public void Move(PlayerController player)
     {
         Vector3 dir = player.Cam.forward * player.MoveInput.y + player.Cam.right * player.MoveInput.x;
@@ -29,5 +30,9 @@ public class UnderwaterMovement : ScriptableObject, IMovementSystem
     public void Crouch(PlayerController player)
     {
         player.Velocity = new Vector3(player.Velocity.x, -verticalSpeed, player.Velocity.z);
+    }
+    public float GetDurabilityDamage()
+    {
+        return damagePerSecond;
     }
 }

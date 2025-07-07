@@ -5494,7 +5494,7 @@ Transform:
   m_GameObject: {fileID: 492066017}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38097295, y: -0, z: -0, w: 0.9245862}
-  m_LocalPosition: {x: -0.06, y: 2.21, z: -9.55}
+  m_LocalPosition: {x: -0.06, y: -2.31, z: -13.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6116,7 +6116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1111020964
 Transform:
   m_ObjectHideFlags: 0
@@ -6140,7 +6140,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111020963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7219,6 +7219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 20e341b1d63074246ad521dd8c039ccc, type: 2}
+  stats: {fileID: 11400000, guid: 65292cb7ac0c79c488da077e534efb5e, type: 2}
   landed: {fileID: 11400000, guid: ecdeb390016279a45a7bc92de1cd4004, type: 2}
   glide: {fileID: 11400000, guid: c8c4197bdfcb1aa4097d13b3da7f01f5, type: 2}
   underwater: {fileID: 11400000, guid: 42d7b55cd25b174418dde48c72d8560f, type: 2}

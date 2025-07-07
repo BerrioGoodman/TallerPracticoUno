@@ -8,6 +8,7 @@ public class MultiplierSpeed : MonoBehaviour
         if (player != null)
         {
             player.ActivateMultiplier();
+            player.RechargeDurability();
             Destroy(gameObject);
         }
     }

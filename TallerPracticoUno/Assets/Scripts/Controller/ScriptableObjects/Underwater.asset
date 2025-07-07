@@ -16,3 +16,4 @@ MonoBehaviour:
   bouyancy: 0.5
   verticalDrag: 2
   horizontalDrag: 1.5
+  damagePerSecond: 4

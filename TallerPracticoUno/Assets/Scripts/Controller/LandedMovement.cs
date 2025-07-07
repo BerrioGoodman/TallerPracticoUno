@@ -4,6 +4,7 @@ public class LandedMovement : ScriptableObject, IMovementSystem
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private int maxJumps;
+    [SerializeField] private float damagePerSecond;
     public void Move(PlayerController player)
     {
         Vector3 dir = player.Cam.forward * player.MoveInput.y + player.Cam.right * player.MoveInput.x;
@@ -34,5 +35,9 @@ public class LandedMovement : ScriptableObject, IMovementSystem
     public void Crouch(PlayerController player)
     {
         //Pending this mechaninc
+    }
+    public float GetDurabilityDamage()
+    {
+        return damagePerSecond;
     }
 }
