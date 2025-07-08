@@ -6,7 +6,7 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController player = GetComponent<PlayerController>();
+            PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
                 AudioManager.Instance.PlaySFX("Portal_Small");
