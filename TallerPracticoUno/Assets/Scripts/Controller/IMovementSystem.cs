@@ -8,4 +8,6 @@ public interface IMovementSystem
     void Crouch(PlayerController player);
 
     float GetDurabilityDamage();
+    void OnEnter(PlayerController player);
+    void OnExit(PlayerController player);
 }

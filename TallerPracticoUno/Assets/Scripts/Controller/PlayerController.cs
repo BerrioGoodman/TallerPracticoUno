@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float multiplierTime;
     [Header("Camera")]
     [SerializeField] private Transform cam;
+    [Header("Teleportation")]
+    [SerializeField] private float teleportTime;
+    [SerializeField] private Transform startPoint;
 
     private Vector2 moveDirection;
     private Vector2 lookDirection;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private int jumpsRemaining = 0;
     private IMovementSystem currentMovement;
     private Coroutine durabilityCoroutine;
+    private Coroutine teleportCoroutine;
     public float BaseSpeed => isSprinting ? baseSpeed * 2 : baseSpeed;
     public float Gravity => gravity;
     public Vector2 MoveInput => moveDirection;
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SetMovement(movementType);
+        currentMovement.OnEnter(this);
     }
     private void OnEnable()
     {
@@ -135,7 +137,10 @@ public class PlayerController : MonoBehaviour
     public void ActivateMultiplier()
     {
         if (!isMultiplierOn)
+        {
+            AudioManager.Instance.PlaySFX("PowerUp");
             StartCoroutine(MultiplierRoutine());
+        }
     }
     private IEnumerator MultiplierRoutine()
     {
@@ -176,7 +181,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Water"))
+        /*if (other.CompareTag("Water"))
         {
             SetMovement(MovementType.Underwater);
         }
@@ -184,17 +189,48 @@ public class PlayerController : MonoBehaviour
         {
             SetMovement(MovementType.Glide);
             inWindZone = true;
+        }*/
+        if (other.CompareTag("Water"))
+        {
+            currentMovement?.OnExit(this);
+            SetMovement(MovementType.Underwater);
+            underwater.OnEnter(this);
+        }
+        else if (other.CompareTag("Wind"))
+        {
+            currentMovement?.OnExit(this);
+            SetMovement(MovementType.Glide);
+            glide.OnEnter(this);
+            inWindZone = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Water"))
+        /*if (other.CompareTag("Water"))
         {
             SetMovement(MovementType.Landed);
         }
         else if (other.CompareTag("Wind"))
         {
             SetMovement(MovementType.Landed);
+            inWindZone = false;
+            if (!IsGrounded)
+            {
+                Velocity = new Vector3(Velocity.x, 0f, Velocity.z);
+                Velocity += Vector3.up * Gravity * Time.deltaTime;
+            }
+        }*/
+        if (other.CompareTag("Water"))
+        {
+            underwater.OnExit(this);
+            SetMovement(MovementType.Landed);
+            landed.OnEnter(this);
+        }
+        else if (other.CompareTag("Wind"))
+        {
+            glide.OnExit(this);
+            SetMovement(MovementType.Landed);
+            landed.OnEnter(this);
             inWindZone = false;
             if (!IsGrounded)
             {
@@ -210,5 +246,37 @@ public class PlayerController : MonoBehaviour
     private void OnDurabilityChanged(float current, float max)
     {
         Debug.Log($"Durabilidad actual: {current} / {max}");
+    }
+    public void StartTeleport()
+    {
+        if (teleportCoroutine != null)
+            StopCoroutine(teleportCoroutine);
+
+        teleportCoroutine = StartCoroutine(TeleportLerp(startPoint.position, startPoint.rotation));
+    }
+    private IEnumerator TeleportLerp(Vector3 targetPos, Quaternion targetRot)
+    {
+        controller.enabled = false;
+
+        Vector3 initialPos = transform.position;
+        Quaternion initialRot = transform.rotation;
+        float elapsed = 0f;
+
+        while (elapsed < teleportTime)
+        {
+            float t = elapsed / teleportTime;
+            transform.position = Vector3.Lerp(initialPos, targetPos, t);
+            transform.rotation = Quaternion.Slerp(initialRot, targetRot, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.SetPositionAndRotation(targetPos, targetRot);
+        Velocity = Vector3.zero;
+        ExternalForce = Vector3.zero;
+        controller.enabled = true;
+
+        SetMovement(MovementType.Landed);
+        currentMovement.OnEnter(this);
     }
 }

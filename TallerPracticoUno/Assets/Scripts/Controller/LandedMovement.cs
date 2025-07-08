@@ -30,6 +30,7 @@ public class LandedMovement : ScriptableObject, IMovementSystem
         {
             player.Velocity = new Vector3(player.Velocity.x, jumpForce, player.Velocity.z);
             player.JumpsRemaining--;
+            AudioManager.Instance.PlaySFX("Jump");
         }
     }
     public void Crouch(PlayerController player)
@@ -39,5 +40,14 @@ public class LandedMovement : ScriptableObject, IMovementSystem
     public float GetDurabilityDamage()
     {
         return damagePerSecond;
+    }
+    public void OnEnter(PlayerController player)
+    {
+        AudioManager.Instance.PlayMusic("Ambience");
+        AudioManager.Instance.PlayMusic("Character_Loop");
+    }
+    public void OnExit(PlayerController player)
+    {
+        
     }
 }

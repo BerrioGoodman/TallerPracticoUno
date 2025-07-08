@@ -35,4 +35,13 @@ public class UnderwaterMovement : ScriptableObject, IMovementSystem
     {
         return damagePerSecond;
     }
+    public void OnEnter(PlayerController player)
+    {
+        AudioManager.Instance.PlaySFX("Water_Enter");
+        AudioManager.Instance.PlayMusic("Water_Loop");
+    }
+    public void OnExit(PlayerController player)
+    {
+        AudioManager.Instance.PlaySFX("Water_Exit");
+    }
 }
