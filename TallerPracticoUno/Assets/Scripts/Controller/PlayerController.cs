@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,7 +21,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float multiplierTime;
     [Header("Camera")]
     [SerializeField] private Transform cam;
+    [Header("Teleportation")]
+    [SerializeField] private float teleportTime;
+    [SerializeField] private Transform startPoint;
 
+    private MovementHandler movementHandler;
+    private ExternalForceManager forceManager;
     private Vector2 moveDirection;
     private Vector2 lookDirection;
     private Vector3 velocity;
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private int jumpsRemaining = 0;
     private IMovementSystem currentMovement;
     private Coroutine durabilityCoroutine;
+    private Coroutine teleportCoroutine;
+    private bool isTeleporting = false;
     public float BaseSpeed => isSprinting ? baseSpeed * 2 : baseSpeed;
     public float Gravity => gravity;
     public Vector2 MoveInput => moveDirection;
@@ -53,7 +57,10 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        movementHandler = new MovementHandler(transform, cam, rotationSpeed);
+        forceManager = new ExternalForceManager();
         SetMovement(movementType);
+        currentMovement.OnEnter(this);
     }
     private void OnEnable()
     {
@@ -77,10 +84,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (isTeleporting || !controller.enabled) return;
         currentMovement.ApplyGravity(this);
         currentMovement.Move(this);
-        HandleLookRotation();
-        DecayExternalForce();
+        movementHandler.Rotate(moveDirection);
+        externalForce = forceManager.Decay(externalForce, inWindZone);
     }
     private void OnMove(Vector2 direction)
     {
@@ -106,36 +114,18 @@ public class PlayerController : MonoBehaviour
     {
         currentMovement.Crouch(this);
     }
-    private void HandleLookRotation()
-    {
-        if (moveDirection == Vector2.zero) return;
-
-        Vector3 dir = cam.forward * moveDirection.y + cam.right * moveDirection.x;
-        dir.y = 0;
-        if (dir != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-        }
-    }
-    private void DecayExternalForce()
-    {
-        float decayRate = inWindZone ? 0.1f : 0.5f;
-        externalForce = Vector3.Lerp(externalForce, Vector3.zero, Time.deltaTime * decayRate);
-    }
     public void ApplyExternalForce(Vector3 wind, float windSpeed)
     {
-        if (wind == Vector3.zero) return;
-
-        Vector3 force = wind.normalized * windSpeed;
-        velocity.y = force.y;
-        force.y = 0;
+        Vector3 force = forceManager.ApplyWind(wind, windSpeed, ref velocity);
         externalForce += force;
     }
     public void ActivateMultiplier()
     {
         if (!isMultiplierOn)
+        {
+            AudioManager.Instance.PlaySFX("PowerUp");
             StartCoroutine(MultiplierRoutine());
+        }
     }
     private IEnumerator MultiplierRoutine()
     {
@@ -159,30 +149,30 @@ public class PlayerController : MonoBehaviour
     public void SetMovement(MovementType type)
     {
         movementType = type;
-        switch (type)
+        currentMovement = MovementFactory.GetMovement(type, landed, glide, underwater);
+        RestartDurabilityCoroutine();
+    }
+    private void RestartDurabilityCoroutine()
+    {
+        if (durabilityCoroutine != null)
         {
-            case MovementType.Landed:
-                currentMovement = landed;
-                break;
-            case MovementType.Glide:
-                currentMovement = glide;
-                break;
-            case MovementType.Underwater:
-                currentMovement = underwater;
-                break;
+            StopCoroutine(durabilityCoroutine);
         }
-        if (durabilityCoroutine != null) StopCoroutine(durabilityCoroutine);
         durabilityCoroutine = StartCoroutine(DurabilityCoroutine());
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))
         {
+            currentMovement?.OnExit(this);
             SetMovement(MovementType.Underwater);
+            underwater.OnEnter(this);
         }
         else if (other.CompareTag("Wind"))
         {
+            currentMovement?.OnExit(this);
             SetMovement(MovementType.Glide);
+            glide.OnEnter(this);
             inWindZone = true;
         }
     }
@@ -190,11 +180,15 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Water"))
         {
+            underwater.OnExit(this);
             SetMovement(MovementType.Landed);
+            landed.OnEnter(this);
         }
         else if (other.CompareTag("Wind"))
         {
+            glide.OnExit(this);
             SetMovement(MovementType.Landed);
+            landed.OnEnter(this);
             inWindZone = false;
             if (!IsGrounded)
             {
@@ -210,5 +204,33 @@ public class PlayerController : MonoBehaviour
     private void OnDurabilityChanged(float current, float max)
     {
         Debug.Log($"Durabilidad actual: {current} / {max}");
+    }
+    public void StartTeleport()
+    {
+        if (teleportCoroutine != null) StopCoroutine(teleportCoroutine);
+        teleportCoroutine = StartCoroutine(TeleportLerp(startPoint.position, startPoint.rotation));
+    }
+    private IEnumerator TeleportLerp(Vector3 targetPos, Quaternion targetRot)
+    {
+        isTeleporting = true;
+        controller.enabled = false;
+        SetPlayerVisible(false);
+        yield return new WaitForSeconds(teleportTime);
+        transform.SetPositionAndRotation(startPoint.position, startPoint.rotation);
+        velocity = Vector3.zero;
+        externalForce = Vector3.zero;
+        SetPlayerVisible(true);
+        controller.enabled = true;
+        SetMovement(MovementType.Landed);
+        currentMovement.OnEnter(this);
+        isTeleporting = false;
+    }
+    private void SetPlayerVisible(bool visible)
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers)
+        {
+            r.enabled = visible;
+        }
     }
 }
