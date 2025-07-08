@@ -5,9 +5,20 @@ public class WindBehavior : MonoBehaviour
     private Vector3 windDirection;
     [SerializeField] private float windSpeed;
     [SerializeField] private bool applyContinous = false;
+    [SerializeField] private ParticleSystem windParticles;
+    [SerializeField] private float particlesRate;
+    private ParticleSystem.EmissionModule emission;
     private void Start()
     {
-        //windDirection = transform.forward;
+        windDirection = transform.forward;
+
+        if (windParticles != null)
+        {
+            emission = windParticles.emission;
+            //Activate wind particles
+            emission.rateOverTime = windSpeed * particlesRate;
+            windParticles.Play();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

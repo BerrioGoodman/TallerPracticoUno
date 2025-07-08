@@ -27,4 +27,13 @@ public class GlideMovement : ScriptableObject, IMovementSystem
     {
         return damagePerSecond;
     }
+    public void OnEnter(PlayerController player)
+    {
+        AudioManager.Instance.PlaySFX("Wind_Enter");
+        AudioManager.Instance.PlayMusic("Wind_Loop");
+    }
+    public void OnExit(PlayerController player)
+    {
+        AudioManager.Instance.PlaySFX("Wind_Exit");
+    }
 }
