@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayMusic("Ambience");
         UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
     }
 
@@ -51,5 +53,27 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
         
         UIManager.Instance.Hide(ScreenType.PauseMenu);
+    }
+
+    private void LoadPlayerPosition() 
+    {
+        string lastCheckpointID = SaveManager.Instance.GetLastCheckpointID();
+
+        GameObject checkpointObject = GameObject.Find(lastCheckpointID);
+
+        if (checkpointObject != null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+
+                player.transform.position = checkpointObject.transform.position;
+                Debug.Log($"Jugador movido al checkpoint: {lastCheckpointID}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"No se pudo encontrar el GameObject del checkpoint con ID: {lastCheckpointID}");
+        }
     }
 }
