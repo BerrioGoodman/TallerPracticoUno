@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayMusic("Ambience");
         UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
     }
 
