@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("Dependecies")]
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
-    
-    private bool isGamePaused = false;
 
     private void Awake()
     {
@@ -43,15 +41,11 @@ public class GameManager : MonoBehaviour
 
     private void SetPause()
     {
-        isGamePaused = true;
-
         UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
     }
 
     private void SetResume()
     { 
-        isGamePaused = false;
-        
         UIManager.Instance.Hide(ScreenType.PauseMenu);
     }
 

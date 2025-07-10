@@ -39,6 +39,7 @@ public class PauseMenuController : BaseController
         {
             Time.timeScale = 1;
             isGameLogicPaused = false;
+            Debug.Log("Hola hide");
         }
     }
 
