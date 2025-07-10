@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Portal
   - Crystal
+  - Obstacle
   layers:
   - Default
   - TransparentFX
