@@ -1700,6 +1700,13 @@ Transform:
   - {fileID: 628002325}
   - {fileID: 190541020}
   - {fileID: 661754728}
+  - {fileID: 1421826480}
+  - {fileID: 559978709}
+  - {fileID: 2059861804}
+  - {fileID: 439169625}
+  - {fileID: 1222098857}
+  - {fileID: 2136249635}
+  - {fileID: 1658867044}
   m_Father: {fileID: 482055998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &87004192
@@ -4108,6 +4115,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2895705904401240693, guid: e33f98379b3b060448bb5634c6b5680c, type: 3}
   m_PrefabInstance: {fileID: 410305922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &234869188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234869189}
+  - component: {fileID: 234869190}
+  m_Layer: 0
+  m_Name: Camino5 (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &234869189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234869188}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9994886, z: -0, w: 0.0319775}
+  m_LocalPosition: {x: -12.1, y: 7.5, z: -57.3}
+  m_LocalScale: {x: 95.66436, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -176.335, z: 0}
+--- !u!65 &234869190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234869188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &235649208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7428,6 +7488,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8178130914222405802, guid: 25da4a3d9b187af488ed543f6bc08763, type: 3}
   m_PrefabInstance: {fileID: 1573168365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &439169624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439169625}
+  - component: {fileID: 439169626}
+  m_Layer: 0
+  m_Name: Camino4 (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439169625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439169624}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9099678, z: -0, w: -0.41467893}
+  m_LocalPosition: {x: 17.5, y: 5.6, z: 78.7}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 8.587672}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -228.998, z: 0}
+--- !u!65 &439169626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439169624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &448344127
 GameObject:
   m_ObjectHideFlags: 0
@@ -8170,6 +8283,7 @@ Transform:
   - {fileID: 515927383}
   - {fileID: 1137333352}
   - {fileID: 85256614}
+  - {fileID: 1072617089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &495496224
@@ -8926,11 +9040,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3805318389859771188, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
   m_PrefabInstance: {fileID: 541768914}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &545264846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545264847}
+  - component: {fileID: 545264848}
+  m_Layer: 0
+  m_Name: Camino5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &545264847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545264846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.04863759, z: -0, w: 0.9988165}
+  m_LocalPosition: {x: -43.1, y: 7.5, z: 13.3}
+  m_LocalScale: {x: 50.97861, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: 5.576, z: 0}
+--- !u!65 &545264848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545264846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &548247825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2895705904401240693, guid: e33f98379b3b060448bb5634c6b5680c, type: 3}
   m_PrefabInstance: {fileID: 1008264048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559978709}
+  - component: {fileID: 559978710}
+  m_Layer: 0
+  m_Name: Camino4 (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559978709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559978708}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9989743, z: -0, w: -0.04527979}
+  m_LocalPosition: {x: 11.7, y: 5.6, z: 101.3}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 45.015984}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -185.19, z: 0}
+--- !u!65 &559978710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559978708}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &563080887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10011,8 +10231,8 @@ Transform:
   m_GameObject: {fileID: 628002324}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9985645, z: -0, w: -0.053562477}
-  m_LocalPosition: {x: 57.1, y: 5.6, z: 23.4}
-  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 31.06621}
+  m_LocalPosition: {x: 56.9, y: 5.6, z: 25}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 33.98954}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 85256614}
@@ -13593,8 +13813,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &846462829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13616,7 +13836,7 @@ Transform:
   m_GameObject: {fileID: 846462827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.3771568, z: -0, w: 0.9261494}
-  m_LocalPosition: {x: -66.13, y: 5.23, z: 133.7}
+  m_LocalPosition: {x: -65.98, y: 5.23, z: 133.85}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15746,6 +15966,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3836581064361698930, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
   m_PrefabInstance: {fileID: 998483731}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &998799421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998799422}
+  - component: {fileID: 998799423}
+  m_Layer: 0
+  m_Name: Camino5 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998799422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998799421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.577166, z: -0, w: 0.81662685}
+  m_LocalPosition: {x: -67.8, y: 7.5, z: -4.2}
+  m_LocalScale: {x: 16.737537, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -70.503, z: 0}
+--- !u!65 &998799423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998799421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1000550440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7793036984242610734, guid: 732e11c41aea13549a64315fae3cc666, type: 3}
@@ -17421,6 +17694,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 718537487406136944, guid: 9f93d52e05306f84e897668927262f76, type: 3}
   m_PrefabInstance: {fileID: 1069043219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1072617088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072617089}
+  m_Layer: 0
+  m_Name: CaminoAgua
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1072617089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072617088}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 545264847}
+  - {fileID: 1479657062}
+  - {fileID: 1436133543}
+  - {fileID: 1217064826}
+  - {fileID: 998799422}
+  - {fileID: 1340623282}
+  - {fileID: 1821253663}
+  - {fileID: 234869189}
+  - {fileID: 1722959070}
+  - {fileID: 1837746576}
+  - {fileID: 1137989782}
+  m_Father: {fileID: 482055998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1081587804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18494,6 +18809,59 @@ Transform:
   - {fileID: 215369732}
   m_Father: {fileID: 482055998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1137989781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137989782}
+  - component: {fileID: 1137989783}
+  m_Layer: 0
+  m_Name: Camino5 (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137989782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137989781}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.8763778, z: -0, w: 0.48162428}
+  m_LocalPosition: {x: 77.63, y: 7.5, z: -53.73}
+  m_LocalScale: {x: 20.24778, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -122.417, z: 0}
+--- !u!65 &1137989783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137989781}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1139281098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20165,6 +20533,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8890356699427785745, guid: d5b8de414112a004a82d0437b5f7a780, type: 3}
   m_PrefabInstance: {fileID: 1212226535}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1217064825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217064826}
+  - component: {fileID: 1217064827}
+  m_Layer: 0
+  m_Name: Camino5 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217064826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217064825}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7389371, z: -0, w: 0.6737745}
+  m_LocalPosition: {x: -80.9, y: 7.5, z: -21.5}
+  m_LocalScale: {x: 28.00418, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -95.282, z: 0}
+--- !u!65 &1217064827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217064825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1221008999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 718537487406136944, guid: 9f93d52e05306f84e897668927262f76, type: 3}
@@ -20256,6 +20677,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3169668576073457521, guid: cf22a2db10f09a34495e9f83913738c8, type: 3}
   m_PrefabInstance: {fileID: 1221544196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1222098856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222098857}
+  - component: {fileID: 1222098858}
+  m_Layer: 0
+  m_Name: Camino4 (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1222098857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222098856}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.72687554, z: -0, w: 0.6867693}
+  m_LocalPosition: {x: 50.8, y: 5.6, z: 124.2}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 55.109646}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -93.25, z: 0}
+--- !u!65 &1222098858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222098856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1225357555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23026,6 +23500,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87237bf47ad87a8419a03d8ca461b8d1, type: 3}
+--- !u!1 &1340623281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340623282}
+  - component: {fileID: 1340623283}
+  m_Layer: 0
+  m_Name: Camino5 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340623282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340623281}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.78644097, z: -0, w: 0.6176654}
+  m_LocalPosition: {x: -65.5, y: 7.5, z: -33.3}
+  m_LocalScale: {x: 45.25746, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -103.708, z: 0}
+--- !u!65 &1340623283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340623281}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1340712090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24390,6 +24917,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3169668576073457521, guid: cf22a2db10f09a34495e9f83913738c8, type: 3}
   m_PrefabInstance: {fileID: 1418853095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1421826479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421826480}
+  - component: {fileID: 1421826481}
+  m_Layer: 0
+  m_Name: Camino4 (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1421826480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421826479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9226611, z: -0, w: -0.38561183}
+  m_LocalPosition: {x: 38, y: 5.6, z: 58.4}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 47.84026}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -225.363, z: 0}
+--- !u!65 &1421826481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421826479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1426313331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24717,6 +25297,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8890356699427785745, guid: d5b8de414112a004a82d0437b5f7a780, type: 3}
   m_PrefabInstance: {fileID: 1434093679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1436133542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436133543}
+  - component: {fileID: 1436133544}
+  m_Layer: 0
+  m_Name: Camino5 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436133543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436133542}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.492159, z: -0, w: 0.87050533}
+  m_LocalPosition: {x: -75.6, y: 7.5, z: 4.4}
+  m_LocalScale: {x: 28.00418, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -58.965, z: 0}
+--- !u!65 &1436133544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436133542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1439029955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25659,6 +26292,59 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476836667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1479657061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479657062}
+  - component: {fileID: 1479657063}
+  m_Layer: 0
+  m_Name: Camino5 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479657062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479657061}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.05678954, z: -0, w: 0.9983862}
+  m_LocalPosition: {x: -41.8, y: 7.5, z: 0}
+  m_LocalScale: {x: 46.611275, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: 6.511, z: 0}
+--- !u!65 &1479657063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479657061}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -29294,6 +29980,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 767562868964138845, guid: 7baba197ce36c92439b423eabaad3737, type: 3}
   m_PrefabInstance: {fileID: 1655746849}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1658867043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658867044}
+  - component: {fileID: 1658867045}
+  m_Layer: 0
+  m_Name: Camino4 (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1658867044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658867043}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9015697, z: -0, w: 0.432634}
+  m_LocalPosition: {x: 16.5, y: 5.6, z: 129.2}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 15.433363}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -128.73, z: 0}
+--- !u!65 &1658867045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658867043}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1662920405
 GameObject:
   m_ObjectHideFlags: 0
@@ -30407,6 +31146,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 767562868964138845, guid: 7baba197ce36c92439b423eabaad3737, type: 3}
   m_PrefabInstance: {fileID: 1721796780}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1722959069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722959070}
+  - component: {fileID: 1722959071}
+  m_Layer: 0
+  m_Name: Camino5 (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722959070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722959069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.96670395, z: -0, w: -0.25589728}
+  m_LocalPosition: {x: 45.2, y: 7.5, z: -52}
+  m_LocalScale: {x: 29.437397, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -209.654, z: 0}
+--- !u!65 &1722959071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722959069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1722983612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31808,6 +32600,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404816159c43b2f488e902fdfada69b5, type: 3}
+--- !u!1 &1821253662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821253663}
+  - component: {fileID: 1821253664}
+  m_Layer: 0
+  m_Name: Camino5 (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821253663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821253662}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.80555266, z: -0, w: 0.59252423}
+  m_LocalPosition: {x: -75.4, y: 7.5, z: -47.4}
+  m_LocalScale: {x: 24.334448, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -107.327, z: 0}
+--- !u!65 &1821253664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821253662}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1821423261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32328,6 +33173,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3169668576073457521, guid: cf22a2db10f09a34495e9f83913738c8, type: 3}
   m_PrefabInstance: {fileID: 1831560586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1837746575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837746576}
+  - component: {fileID: 1837746577}
+  m_Layer: 0
+  m_Name: Camino5 (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837746576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837746575}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.99981916, z: -0, w: 0.01901714}
+  m_LocalPosition: {x: 64.8, y: 7.5, z: -45.4}
+  m_LocalScale: {x: 14.438414, y: 10.460636, z: 0.28818214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072617089}
+  m_LocalEulerAnglesHint: {x: 0, y: -177.821, z: 0}
+--- !u!65 &1837746577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837746575}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1839866505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36477,6 +37375,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8365988137616293613, guid: ab567b4b1ecd62640b03418e83203509, type: 3}
   m_PrefabInstance: {fileID: 1686649645}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2059861803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059861804}
+  - component: {fileID: 2059861805}
+  m_Layer: 0
+  m_Name: Camino4 (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2059861804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059861803}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9989743, z: -0, w: -0.04527979}
+  m_LocalPosition: {x: 24.3, y: 5.6, z: 107}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 30.448494}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -185.19, z: 0}
+--- !u!65 &2059861805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059861803}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2060613698
 GameObject:
   m_ObjectHideFlags: 0
@@ -38064,6 +39015,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3805318389859771188, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
   m_PrefabInstance: {fileID: 2135012232}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136249634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136249635}
+  - component: {fileID: 2136249636}
+  m_Layer: 0
+  m_Name: Camino4 (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136249635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136249634}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.72687554, z: -0, w: 0.6867693}
+  m_LocalPosition: {x: 50.1, y: 5.6, z: 136.6}
+  m_LocalScale: {x: 0.8023401, y: 25.563585, z: 55.109646}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 85256614}
+  m_LocalEulerAnglesHint: {x: 0, y: -93.25, z: 0}
+--- !u!65 &2136249636
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136249634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2141983539
 PrefabInstance:
   m_ObjectHideFlags: 0
