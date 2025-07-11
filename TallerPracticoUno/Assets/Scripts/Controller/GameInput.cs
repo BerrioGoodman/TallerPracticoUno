@@ -401,9 +401,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             ""id"": ""d180ee2e-ae78-48d0-b968-558f8e6b6d75"",
             ""actions"": [
                 {
-                    ""name"": ""Resume"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""8b17d594-eef2-4758-9cb8-f69e888dd4f5"",
+                    ""id"": ""d699fa3a-ff4e-4cbf-938f-d09929317a66"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -413,23 +413,23 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""532cefc1-131a-404c-8e66-018eaef07432"",
+                    ""id"": ""ce12af14-e86c-4c43-913b-3a1ad817ee7f"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Resume"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8299f27b-aa68-4a9c-91a5-df9647b70a69"",
+                    ""id"": ""899c06c2-23b0-46d4-a216-d5c245db3245"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Resume"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -451,7 +451,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@GameInput()
@@ -717,7 +717,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Resume;
+    private readonly InputAction m_UI_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -730,9 +730,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// </summary>
         public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "UI/Resume".
+        /// Provides access to the underlying input action "UI/Pause".
         /// </summary>
-        public InputAction @Resume => m_Wrapper.m_UI_Resume;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -759,9 +759,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Resume.started += instance.OnResume;
-            @Resume.performed += instance.OnResume;
-            @Resume.canceled += instance.OnResume;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -773,9 +773,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UIActions" />
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @Resume.started -= instance.OnResume;
-            @Resume.performed -= instance.OnResume;
-            @Resume.canceled -= instance.OnResume;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -888,11 +888,11 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Resume" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnResume(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

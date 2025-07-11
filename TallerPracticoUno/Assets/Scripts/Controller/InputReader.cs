@@ -98,18 +98,17 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (context.phase == InputActionPhase.Performed)
         {
             PauseEvent?.Invoke();
-            SetUI();
         }
     }
 
-    public void OnResume(InputAction.CallbackContext context)
+    /*public void OnResume(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
             ResumeEvent?.Invoke();
             SetGameplay();
         }
-    }
+    }*/
 
     public void OnSprint(InputAction.CallbackContext context)
     {
