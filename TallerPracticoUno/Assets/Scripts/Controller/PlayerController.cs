@@ -233,4 +233,8 @@ public class PlayerController : MonoBehaviour
             r.enabled = visible;
         }
     }
+    public void ResetPickupIfAny()
+    {
+        GetComponent<PlayerPickup>()?.DropOnDeath();
+    }
 }
