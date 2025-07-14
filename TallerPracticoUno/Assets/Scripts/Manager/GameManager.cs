@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
     private bool isGamePaused = false;
+    private int deliveredCount = 0;
+    private const int totalToDeliver = 5;
 
     private void Awake()
     {
@@ -89,5 +91,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError($"No se pudo encontrar el GameObject del checkpoint con ID: {lastCheckpointID}");
         }
+    }
+    public void RegisterDelivery()
+    {
+        deliveredCount++;
+        Debug.Log($"Objects delivered: {deliveredCount} / {totalToDeliver}");
     }
 }
