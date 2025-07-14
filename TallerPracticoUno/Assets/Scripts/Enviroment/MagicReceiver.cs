@@ -1,94 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MagicReceiver : MonoBehaviour
 {
     [Header("Settings")]
     public bool hasMagic;
-    [SerializeField] private float transition;
-    [SerializeField] private float delay;
-    [Header("Initial State")]
-    [SerializeField] private Material darkMaterial;
-    [SerializeField] private Material originalMaterial;
+    [SerializeField] private float transition = 1f;
+
+    [Header("Glow Settings")]
+    [Tooltip("Intensidad del glow respecto al color base")]
+    [SerializeField] private float glowMultiplier = 0.3f;
+
     private Renderer rend;
-    private Coroutine MagicRoutine;
-    private List<MagicReceiver> nearObjects = new List<MagicReceiver>();
+    private Coroutine magicRoutine;
+    private List<Material> materials = new List<Material>();
+
     private void Awake()
     {
         rend = GetComponent<Renderer>();
-        ApplyMaterial(darkMaterial);
+        //Instance for materials just once
+        foreach (Material mat in rend.materials)
+        {
+            Material matInstance = new Material(mat);
+            matInstance.DisableKeyword("_EMISSION");//Start with no emission
+            materials.Add(matInstance);
+        }
+        rend.materials = materials.ToArray();
         hasMagic = false;
     }
     public void SetMagic(bool magic, bool instant = false)
     {
         if (hasMagic == magic) return;
         hasMagic = magic;
-        if (MagicRoutine != null) StopCoroutine(MagicRoutine);
-        MagicRoutine = StartCoroutine(GradualMagicUp(magic ? originalMaterial : darkMaterial, instant));
+        if (magicRoutine != null) StopCoroutine(magicRoutine);
+        magicRoutine = StartCoroutine(TransitionGlow(magic, instant));
     }
-    private IEnumerator GradualMagicUp(Material targetMaterial, bool instant)
+    private IEnumerator TransitionGlow(bool enable, bool instant)
     {
+        float t = 0;
+        List<Color> startEmissionColors = new List<Color>();
+        List<Color> targetEmissionColors = new List<Color>();
+        for (int i = 0; i < materials.Count; i++)
+        {
+            Material mat = materials[i];
+            Color baseColor = mat.GetColor("_Color");//We use the color of the material
+            Color currentEmission = mat.GetColor("_EmissionColor");
+            startEmissionColors.Add(currentEmission);
+            Color targetEmission = enable ? baseColor * glowMultiplier : Color.black;
+            targetEmissionColors.Add(targetEmission);
+        }
         if (instant)
         {
-            ApplyMaterial(targetMaterial);
-            if (hasMagic) StartCoroutine(PropagateMagic());
+            for (int i = 0; i < materials.Count; i++)
+            {
+                Material mat = materials[i];
+                mat.SetColor("_EmissionColor", targetEmissionColors[i]);
+                if (enable) mat.EnableKeyword("_EMISSION");
+                else mat.DisableKeyword("_EMISSION");
+            }
             yield break;
         }
-        Material currentMaterial = rend.material;
-        float t = 0;
-        Color startColor = currentMaterial.color;
-        Color startEmission = currentMaterial.GetColor("_EmissionColor");
-        Color targetColor = targetMaterial.color;
-        Color targetEmission = targetMaterial.GetColor("_EmissionColor");
-        while (t < 1)
+        while (t < 1f)
         {
             t += Time.deltaTime / transition;
-            Color lerpedColor = Color.Lerp(startColor, targetColor, t);
-            Color lerpEmission = Color.Lerp(startEmission, targetEmission, t);
-            currentMaterial.color = lerpedColor;
-            currentMaterial.SetColor("_EmissionColor", lerpEmission);
+            for (int i = 0; i < materials.Count; i++)
+            {
+                Material mat = materials[i];
+                Color newEmission = Color.Lerp(startEmissionColors[i], targetEmissionColors[i], t);
+                mat.SetColor("_EmissionColor", newEmission);
+
+                if (newEmission.maxColorComponent > 0.01f)
+                    mat.EnableKeyword("_EMISSION");
+            }
             yield return null;
         }
-        ApplyMaterial(targetMaterial);
-        if (hasMagic)
+        if (!enable)
         {
-            StartCoroutine(PropagateMagic());
-        }
-    }
-    private void ApplyMaterial(Material mat)
-    {
-        rend.material = new Material(mat);
-    }
-    public IEnumerator PropagateMagic()
-    {
-        yield return new WaitForSeconds(delay);
-        foreach (MagicReceiver neighbor in nearObjects)
-        {
-            if (neighbor != null && !neighbor.hasMagic)
-            {
-                neighbor.SetMagic(true);
-                yield return new WaitForSeconds(delay);
-            }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        MagicReceiver neighbor = other.GetComponent<MagicReceiver>();
-        if (neighbor != null && neighbor != this)
-        {
-            if (!nearObjects.Contains(neighbor)) nearObjects.Add(neighbor);
-            if (!neighbor.nearObjects.Contains(this)) neighbor.nearObjects.Add(this);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        MagicReceiver neighbor = other.GetComponent<MagicReceiver>();
-        if (neighbor != null)
-        {
-            nearObjects.Remove(neighbor);
-            neighbor.nearObjects.Remove(this);
+            foreach (Material mat in materials)
+                mat.DisableKeyword("_EMISSION");
         }
     }
 }

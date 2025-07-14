@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDurabilityChanged(float current, float max)
     {
-        Debug.Log($"Durabilidad actual: {current} / {max}");
+        //Debug.Log($"Durabilidad actual: {current} / {max}");
     }
     public void StartTeleport()
     {
@@ -231,6 +231,23 @@ public class PlayerController : MonoBehaviour
         foreach (Renderer r in renderers)
         {
             r.enabled = visible;
+        }
+    }
+    public void ResetPickupIfAny()
+    {
+        GetComponent<PlayerPickup>()?.DropOnDeath();
+    }
+    public void EnableControl(bool enabled)
+    {
+        if (enabled)
+        {
+            OnEnable();
+        }
+        else
+        {
+            OnDisable();
+            moveDirection = Vector2.zero;
+            lookDirection = Vector2.zero;
         }
     }
 }
