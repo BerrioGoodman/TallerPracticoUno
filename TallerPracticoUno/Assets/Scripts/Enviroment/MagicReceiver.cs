@@ -10,7 +10,7 @@ public class MagicReceiver : MonoBehaviour
 
     [Header("Glow Settings")]
     [Tooltip("Intensidad del glow respecto al color base")]
-    [SerializeField] private float glowMultiplier = 0.3f; // Controla qué tan fuerte brilla
+    [SerializeField] private float glowMultiplier = 0.3f;
 
     private Renderer rend;
     private Coroutine magicRoutine;
@@ -19,64 +19,48 @@ public class MagicReceiver : MonoBehaviour
     private void Awake()
     {
         rend = GetComponent<Renderer>();
-
-        // Instanciar materiales (una sola vez)
+        //Instance for materials just once
         foreach (Material mat in rend.materials)
         {
             Material matInstance = new Material(mat);
-            matInstance.DisableKeyword("_EMISSION"); // Asegura que arranque sin brillo
+            matInstance.DisableKeyword("_EMISSION");//Start with no emission
             materials.Add(matInstance);
         }
-
         rend.materials = materials.ToArray();
         hasMagic = false;
     }
-
     public void SetMagic(bool magic, bool instant = false)
     {
         if (hasMagic == magic) return;
-
         hasMagic = magic;
-
-        if (magicRoutine != null)
-            StopCoroutine(magicRoutine);
-
+        if (magicRoutine != null) StopCoroutine(magicRoutine);
         magicRoutine = StartCoroutine(TransitionGlow(magic, instant));
     }
-
     private IEnumerator TransitionGlow(bool enable, bool instant)
     {
         float t = 0;
         List<Color> startEmissionColors = new List<Color>();
         List<Color> targetEmissionColors = new List<Color>();
-
         for (int i = 0; i < materials.Count; i++)
         {
             Material mat = materials[i];
-            Color baseColor = mat.GetColor("_Color"); // Usa el color del material
-
+            Color baseColor = mat.GetColor("_Color");//We use the color of the material
             Color currentEmission = mat.GetColor("_EmissionColor");
             startEmissionColors.Add(currentEmission);
-
             Color targetEmission = enable ? baseColor * glowMultiplier : Color.black;
             targetEmissionColors.Add(targetEmission);
         }
-
         if (instant)
         {
             for (int i = 0; i < materials.Count; i++)
             {
                 Material mat = materials[i];
                 mat.SetColor("_EmissionColor", targetEmissionColors[i]);
-
-                if (enable)
-                    mat.EnableKeyword("_EMISSION");
-                else
-                    mat.DisableKeyword("_EMISSION");
+                if (enable) mat.EnableKeyword("_EMISSION");
+                else mat.DisableKeyword("_EMISSION");
             }
             yield break;
         }
-
         while (t < 1f)
         {
             t += Time.deltaTime / transition;
@@ -91,7 +75,6 @@ public class MagicReceiver : MonoBehaviour
             }
             yield return null;
         }
-
         if (!enable)
         {
             foreach (Material mat in materials)

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 public class DeliveryPoint : MonoBehaviour
 {
-    [Header("Entrega")]
+    [Header("Delivery")]
     [SerializeField] private List<Transform> dropPositions = new List<Transform>();
     [SerializeField] private AudioClip deliverSfx;
     private int currentIndex = 0;
@@ -17,6 +17,7 @@ public class DeliveryPoint : MonoBehaviour
             pick.DeliverTo(dropPoint);
             AudioManager.Instance.PlaySFX("Rune");
             GameManager.Instance.RegisterDelivery();
+            CameraManager.Instance.FocusOnCinematicPoint();
             currentIndex++;
         }
     }

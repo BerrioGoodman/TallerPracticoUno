@@ -237,4 +237,17 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<PlayerPickup>()?.DropOnDeath();
     }
+    public void EnableControl(bool enabled)
+    {
+        if (enabled)
+        {
+            OnEnable();
+        }
+        else
+        {
+            OnDisable();
+            moveDirection = Vector2.zero;
+            lookDirection = Vector2.zero;
+        }
+    }
 }
