@@ -16,7 +16,7 @@ public class SettingsMenuController : BaseController
 
         //eventos para salir e ir atras
         settingsMenuView.OnBackButtonClicked += HandleBack;
-        settingsMenuView.OnQuitButtonClicked += HandleQuit;
+        //settingsMenuView.OnQuitButtonClicked += HandleQuit;
         
         InitializeView();
     }
@@ -29,7 +29,7 @@ public class SettingsMenuController : BaseController
         settingsMenuView.OnMusicVolumeChanged -= HandleMusicVolumeChanged;
 
         settingsMenuView.OnBackButtonClicked -= HandleBack;
-        settingsMenuView.OnQuitButtonClicked -= HandleQuit;
+       // settingsMenuView.OnQuitButtonClicked -= HandleQuit;
     }
 
     //Vista inicial del guardado de los datos

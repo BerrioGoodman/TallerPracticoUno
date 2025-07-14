@@ -9,14 +9,14 @@ public class SettingsMenuView : BaseView
     [SerializeField] private Slider sfxVolume;
     [SerializeField] private Slider musicVolume;
     [SerializeField] private Button backButton;
-    [SerializeField] private Button quitButton;
+    //[SerializeField] private Button quitButton;
 
     //eventos necesarios
     public event Action<float> OnMasterVolumeChanged;
     public event Action<float> OnSfxVolumeChanged;
     public event Action<float> OnMusicVolumeChanged;
     public event Action OnBackButtonClicked;
-    public event Action OnQuitButtonClicked;
+    //public event Action OnQuitButtonClicked;
     
     //Accesores
     public float MasterVolume
@@ -42,7 +42,7 @@ public class SettingsMenuView : BaseView
     {
         base.Awake();
         backButton.onClick.AddListener(() => OnBackButtonClicked?.Invoke());
-        quitButton.onClick.AddListener(() => OnQuitButtonClicked?.Invoke());
+        //quitButton.onClick.AddListener(() => OnQuitButtonClicked?.Invoke());
         
         masterVolume.onValueChanged.AddListener(value => OnMasterVolumeChanged?.Invoke(value));
         sfxVolume.onValueChanged.AddListener(value => OnSfxVolumeChanged?.Invoke(value));
