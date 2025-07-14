@@ -8,14 +8,14 @@ public class DeliveryPoint : MonoBehaviour
     private int currentIndex = 0;
     private void OnTriggerEnter(Collider other)
     {
-        PlayerPickup player = other.GetComponent<PlayerPickup>();
+        PlayerPickup player = other.GetComponentInParent<PlayerPickup>();
         if (player != null && player.IsCarrying() && currentIndex < dropPositions.Count)
         {
             Pickable pick = player.Drop();
             Transform dropPoint = dropPositions[currentIndex];
 
             pick.DeliverTo(dropPoint);
-            AudioSource.PlayClipAtPoint(deliverSfx, dropPoint.position);
+            AudioManager.Instance.PlaySFX("Rune");
             GameManager.Instance.RegisterDelivery();
             currentIndex++;
         }

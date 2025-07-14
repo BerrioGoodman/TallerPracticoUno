@@ -96,5 +96,9 @@ public class GameManager : MonoBehaviour
     {
         deliveredCount++;
         Debug.Log($"Objects delivered: {deliveredCount} / {totalToDeliver}");
+        if (deliveredCount >= totalToDeliver)
+        {
+            Debug.Log("To be continued...");
+        }
     }
 }

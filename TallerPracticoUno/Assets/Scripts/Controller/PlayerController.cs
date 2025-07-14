@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDurabilityChanged(float current, float max)
     {
-        Debug.Log($"Durabilidad actual: {current} / {max}");
+        //Debug.Log($"Durabilidad actual: {current} / {max}");
     }
     public void StartTeleport()
     {
