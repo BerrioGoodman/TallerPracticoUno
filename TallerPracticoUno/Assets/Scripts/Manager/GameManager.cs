@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Dependecies")]
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
-    private int deliveredCount = 0;
-    private const int totalToDeliver = 5;
+    private bool isGamePaused = false;
 
     private void Awake()
     {
@@ -31,14 +30,33 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        inputReader.PauseEvent += SetPause;
-        inputReader.ResumeEvent += SetResume;
+        inputReader.PauseEvent += TogglePause;
+        //inputReader.ResumeEvent += SetResume;
     }
 
     private void OnDisable()
     {
-        inputReader.PauseEvent -= SetPause;
-        inputReader.ResumeEvent -= SetResume;
+        inputReader.PauseEvent -= TogglePause;
+        //inputReader.ResumeEvent -= SetResume;
+    }
+
+    public void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused)
+        {
+            Time.timeScale = 0;
+            inputReader.SetUI();
+            UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
+        }
+        else 
+        {
+            UIManager.Instance.Hide(ScreenType.SettingsMenu);
+            UIManager.Instance.Hide(ScreenType.PauseMenu);
+            Time.timeScale = 1;
+            inputReader.SetGameplay();
+        }
     }
 
     private void SetPause()
@@ -71,10 +89,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError($"No se pudo encontrar el GameObject del checkpoint con ID: {lastCheckpointID}");
         }
-    }
-    public void RegisterDelivery()
-    {
-        deliveredCount++;
-        Debug.Log($"Objetos entregados: {deliveredCount}/{totalToDeliver}");
     }
 }
