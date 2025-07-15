@@ -19,7 +19,7 @@ public class GameOverController : BaseController
     private void HandleRestart()
     {
         GameManager.Instance.RestartGame();
-        GameManager.Instance.LoadScene(SceneType.TestGame);
+        GameManager.Instance.LoadScene(SceneType.ReadyGame);
     }
 
     private void HandleMainMenu()

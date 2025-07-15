@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.size
@@ -454,6 +454,14 @@ PrefabInstance:
       value: Portal_Small
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f286c4e873983464eab1145dbe6f22bc, type: 3}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[7].name
+      value: Rune
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 56e352f81a5e29649a9e71a227d4e1bc, type: 3}
@@ -483,6 +491,14 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a48ad54a6fc2fa14f99f8d4802684524, type: 3}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.data[3].name
+      value: Water_Loop
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: musicClips.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a48ad54a6fc2fa14f99f8d4802684524, type: 3}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: musicClips.Array.data[4].name
       value: Water_Lopp
       objectReference: {fileID: 0}
     m_RemovedComponents: []

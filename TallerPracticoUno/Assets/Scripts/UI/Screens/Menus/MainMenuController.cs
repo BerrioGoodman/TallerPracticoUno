@@ -20,7 +20,7 @@ public class MainMenuController : BaseController
 
     private void HandleStart()
     {
-        GameManager.Instance.LoadScene(SceneType.TestGame);
+        GameManager.Instance.LoadScene(SceneType.ReadyGame);
     }
 
     private void HandleCredits()
