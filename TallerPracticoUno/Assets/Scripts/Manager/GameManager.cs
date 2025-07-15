@@ -1,15 +1,22 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    
+
     [Header("Dependecies")]
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
+    [Header("Data Dependencies")] 
+    [SerializeField] private FlameStats_SO flameStats;
+    [SerializeField] private SettingsData_SO settingsData;
+
     private bool isGamePaused = false;
+    private int deliveredCount = 0;
+    private const int totalToDeliver = 5;
 
     private void Awake()
     {
@@ -20,24 +27,40 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    private void Start()
-    {
-        AudioManager.Instance.PlayMusic("Ambience");
-        UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnEnable()
     {
         inputReader.PauseEvent += TogglePause;
-        //inputReader.ResumeEvent += SetResume;
     }
 
     private void OnDisable()
     {
         inputReader.PauseEvent -= TogglePause;
-        //inputReader.ResumeEvent -= SetResume;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == SceneType.ReadyGame.ToString())
+        {
+            inputReader.SetGameplay();
+            AudioManager.Instance.PlayMusic("Ambience");
+            UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
+        }
+        else if (scene.name == SceneType.GameOver.ToString())
+        {          
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void TogglePause()
@@ -59,15 +82,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SetPause()
+    public void LoadScene(SceneType loadScene) 
     {
-        UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
+        SceneManager.LoadScene(loadScene.ToString());
     }
 
-    private void SetResume()
-    { 
-        UIManager.Instance.Hide(ScreenType.PauseMenu);
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
+
+    public void RestartGame()
+    {
+        Debug.Log("Reiniciando el juego...");
+        ResetGameState();
+        LoadScene(SceneType.ReadyGame);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Debug.Log("Volviendo al Menú Principal...");
+        ResetGameState();
+        LoadScene(SceneType.MainMenuScene);
+    }
+
+    private void ResetGameState()
+    {
+        flameStats.Reset();
+
+        deliveredCount = 0;
+    }
+
 
     private void LoadPlayerPosition() 
     {
@@ -88,6 +137,15 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError($"No se pudo encontrar el GameObject del checkpoint con ID: {lastCheckpointID}");
+        }
+    }
+    public void RegisterDelivery()
+    {
+        deliveredCount++;
+        Debug.Log($"Objects delivered: {deliveredCount} / {totalToDeliver}");
+        if (deliveredCount >= totalToDeliver)
+        {
+            Debug.Log("To be continued...");
         }
     }
 }

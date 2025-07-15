@@ -22,27 +22,6 @@ public class PauseMenuController : BaseController
         pauseMenuView.OnMainMenuClicked -= HandleMainMenu;
     }
 
-    //public override void Show()
-    //{
-    //    base.Show();
-    //    if (!isGameLogicPaused)
-    //    {
-    //        Time.timeScale = 0;
-    //        isGameLogicPaused = true;
-    //    }
-    //}
-
-    //public override void Hide()
-    //{
-    //    base.Hide();
-    //    if (isGameLogicPaused)
-    //    {
-    //        Time.timeScale = 1;
-    //        isGameLogicPaused = false;
-    //        Debug.Log("Hola hide");
-    //    }
-    //}
-
     private void HandleMainMenu()
     {
         throw new NotImplementedException();
