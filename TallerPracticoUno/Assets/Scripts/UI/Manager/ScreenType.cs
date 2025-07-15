@@ -6,5 +6,6 @@ public enum ScreenType
     FlameHUD, 
     PauseMenu,
     SettingsMenu,
+    GameOverScreen,
     ConfirmationPopup //Implementacion de popups
 }

@@ -16,7 +16,7 @@ public class SettingsMenuController : BaseController
 
         //eventos para salir e ir atras
         settingsMenuView.OnBackButtonClicked += HandleBack;
-        settingsMenuView.OnQuitButtonClicked += HandleQuit;
+        //settingsMenuView.OnQuitButtonClicked += HandleQuit;
         
         InitializeView();
     }
@@ -29,22 +29,15 @@ public class SettingsMenuController : BaseController
         settingsMenuView.OnMusicVolumeChanged -= HandleMusicVolumeChanged;
 
         settingsMenuView.OnBackButtonClicked -= HandleBack;
-        settingsMenuView.OnQuitButtonClicked -= HandleQuit;
+       // settingsMenuView.OnQuitButtonClicked -= HandleQuit;
     }
 
     //Vista inicial del guardado de los datos
     private void InitializeView()
     {
-        settingsData.LoadAndApplySettings();
-        
         settingsMenuView.MasterVolume = settingsData.masterVolume;
         settingsMenuView.SfxVolume = settingsData.sfxVolume;
         settingsMenuView.MusicVolume = settingsData.musicVolume;
-    }
-
-    private void HandleQuit()
-    {
-        
     }
 
     private void HandleBack()
@@ -57,15 +50,18 @@ public class SettingsMenuController : BaseController
     private void HandleMusicVolumeChanged(float value)
     {
         settingsData.SetVolume("MusicVolume", value);
+        settingsData.SaveSettings();
     }
 
     private void HandleSfxVolumeChanged(float value)
     {
         settingsData.SetVolume("SFXVolume", value);
+        settingsData.SaveSettings();
     }
 
     private void HandleMasterVolumeChanged(float value)
     {
         settingsData.SetVolume("MasterVolume", value);
+        settingsData.SaveSettings();
     }
 }
