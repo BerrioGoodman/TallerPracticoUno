@@ -22,12 +22,16 @@ public class SettingsData_SO : ScriptableObject
     }
 
     //Aplica las configuraciones hechas en el volumen
-    public void LoadAndApplySettings()
+    public void LoadSettings()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        
+   
+    }
+
+    public void ApplySettings() 
+    {
         SetVolume("MasterVolume", masterVolume);
         SetVolume("SFXVolume", sfxVolume);
         SetVolume("MusicVolume", musicVolume);

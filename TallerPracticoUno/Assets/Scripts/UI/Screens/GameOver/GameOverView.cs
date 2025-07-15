@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameOverView : BaseView
 {
     [SerializeField] private Button restartButton;
-    //[SerializeField] private Button mainMenuButton;
+    [SerializeField] private Button mainMenuButton;
 
     public event Action OnRestartClicked;
     public event Action OnMainMenuClicked;
@@ -14,6 +14,6 @@ public class GameOverView : BaseView
     {
         base.Awake();
         restartButton.onClick.AddListener(() => OnRestartClicked?.Invoke());
-        //mainMenuButton.onClick.AddListener(() => OnMainMenuClicked?.Invoke());
+        mainMenuButton.onClick.AddListener(() => OnMainMenuClicked?.Invoke());
     }
 }

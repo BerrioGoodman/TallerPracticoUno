@@ -40,4 +40,11 @@ public class FlameStats_SO : ScriptableObject
     {
         return (currentDurability, maxDurability);
     }
+
+    public void Reset()
+    {
+        currentDurability = maxDurability;
+        // Disparamos el evento para que la UI se actualice al valor máximo si está visible.
+        OnDurabilityChanged?.Invoke(currentDurability, maxDurability);
+    }
 }

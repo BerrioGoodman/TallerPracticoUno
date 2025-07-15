@@ -7,7 +7,6 @@ public class MainMenuController : BaseController
     private void OnEnable()
     {
         mainMenuView.OnStartButtonClicked += HandleStart;
-        mainMenuView.OnSettingsButtonClicked += HandleSettings;
         mainMenuView.OnCreditsButtonClicked += HandleCredits;
         mainMenuView.OnExitButtonClicked += HandleExit;
     }
@@ -15,7 +14,6 @@ public class MainMenuController : BaseController
     private void OnDisable()
     {
         mainMenuView.OnStartButtonClicked -= HandleStart;
-        mainMenuView.OnSettingsButtonClicked -= HandleSettings;
         mainMenuView.OnCreditsButtonClicked -= HandleCredits;
         mainMenuView.OnExitButtonClicked -= HandleExit;
     }
@@ -23,12 +21,6 @@ public class MainMenuController : BaseController
     private void HandleStart()
     {
         GameManager.Instance.LoadScene(SceneType.TestGame);
-    }
-
-    private void HandleSettings()
-    {
-        // Usamos el UIManager para mostrar el menú de opciones que ya creamos
-        UIManager.Instance.Show<SettingsMenuController>(ScreenType.SettingsMenu);
     }
 
     private void HandleCredits()

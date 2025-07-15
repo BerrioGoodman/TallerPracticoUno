@@ -7,25 +7,24 @@ public class GameOverController : BaseController
     private void OnEnable()
     {
         gameOverView.OnRestartClicked += HandleRestart;
-        //gameOverView.OnMainMenuClicked += HandleMainMenu;
+        gameOverView.OnMainMenuClicked += HandleMainMenu;
     }
 
     private void OnDisable()
     {
         gameOverView.OnRestartClicked -= HandleRestart;
-        //gameOverView.OnMainMenuClicked -= HandleMainMenu;
+        gameOverView.OnMainMenuClicked -= HandleMainMenu;
     }
 
     private void HandleRestart()
     {
-        // Le decimos al GameManager que cargue la escena de juego.
-        // El GameManager, en su método OnSceneLoaded, se encargará de
-        // poner al jugador en el último checkpoint.
+        GameManager.Instance.RestartGame();
         GameManager.Instance.LoadScene(SceneType.TestGame);
     }
 
-    /*private void HandleMainMenu()
+    private void HandleMainMenu()
     {
+        GameManager.Instance.RestartGame();
         GameManager.Instance.LoadScene(SceneType.MainMenuScene);
-    }*/
+    }
 }

@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     [Header("Dependecies")]
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
+    [Header("Data Dependencies")] 
+    [SerializeField] private FlameStats_SO flameStats;
+    [SerializeField] private SettingsData_SO settingsData;
+
     private bool isGamePaused = false;
     private int deliveredCount = 0;
     private const int totalToDeliver = 5;
@@ -27,22 +31,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
-    {
-        //AudioManager.Instance.PlayMusic("Ambience");
-        //UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
-    }
-
     private void OnEnable()
     {
         inputReader.PauseEvent += TogglePause;
-        //inputReader.ResumeEvent += SetResume;
     }
 
     private void OnDisable()
     {
         inputReader.PauseEvent -= TogglePause;
-        //inputReader.ResumeEvent -= SetResume;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -50,7 +46,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == SceneType.TestGame.ToString())
         {
             inputReader.SetGameplay();
-            //AudioManager.Instance.PlayMusic("Ambience");
+            AudioManager.Instance.PlayMusic("Ambience");
             UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
         }
         else if (scene.name == SceneType.GameOver.ToString())
@@ -98,6 +94,27 @@ public class GameManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("Reiniciando el juego...");
+        ResetGameState();
+        LoadScene(SceneType.TestGame);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Debug.Log("Volviendo al Menú Principal...");
+        ResetGameState();
+        LoadScene(SceneType.MainMenuScene);
+    }
+
+    private void ResetGameState()
+    {
+        flameStats.Reset();
+
+        deliveredCount = 0;
     }
 
 
