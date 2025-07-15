@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -204,7 +206,28 @@ public class PlayerController : MonoBehaviour
     private void OnDurabilityChanged(float current, float max)
     {
         //Debug.Log($"Durabilidad actual: {current} / {max}");
+
+        if (current <= 0)
+        {
+            HandleDead();
+        }
     }
+
+    private void HandleDead()
+    {
+
+        Debug.Log("El jugador ha perdido. Cargando escena de Game Over...");
+
+        // AHORA: Le pedimos al GameManager que se encargue de todo.
+        // Él sabe cómo cambiar de escena y configurar los inputs.
+        GameManager.Instance.LoadScene(SceneType.GameOver);
+
+        // Podemos desactivar este script para que el jugador ya no pueda moverse
+        // mientras la nueva escena carga.
+        this.enabled = false;
+
+    }
+
     public void StartTeleport()
     {
         if (teleportCoroutine != null) StopCoroutine(teleportCoroutine);

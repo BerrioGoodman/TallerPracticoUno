@@ -1,11 +1,12 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    
+
     [Header("Dependecies")]
     [Tooltip("Arrastra aquí tu asset InputReader")]
     [SerializeField] private InputReader inputReader;
@@ -22,12 +23,14 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
-        AudioManager.Instance.PlayMusic("Ambience");
-        UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
+        //AudioManager.Instance.PlayMusic("Ambience");
+        //UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
     }
 
     private void OnEnable()
@@ -40,6 +43,28 @@ public class GameManager : MonoBehaviour
     {
         inputReader.PauseEvent -= TogglePause;
         //inputReader.ResumeEvent -= SetResume;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == SceneType.TestGame.ToString())
+        {
+            inputReader.SetGameplay();
+            //AudioManager.Instance.PlayMusic("Ambience");
+            UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
+        }
+        else if (scene.name == SceneType.GameOver.ToString())
+        {          
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void TogglePause()
@@ -61,15 +86,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SetPause()
+    public void LoadScene(SceneType loadScene) 
     {
-        UIManager.Instance.Show<PauseMenuController>(ScreenType.PauseMenu);
+        SceneManager.LoadScene(loadScene.ToString());
     }
 
-    private void SetResume()
-    { 
-        UIManager.Instance.Hide(ScreenType.PauseMenu);
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
+
 
     private void LoadPlayerPosition() 
     {
