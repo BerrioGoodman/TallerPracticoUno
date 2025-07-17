@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == SceneType.Game.ToString())
+        if (scene.name == SceneType.GamePab.ToString())
         {
             inputReader.SetGameplay();
             AudioManager.Instance.PlayMusic("Ambience");
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Reiniciando el juego...");
         ResetGameState();
-        LoadScene(SceneType.Game);
+        LoadScene(SceneType.GamePab);
     }
 
     public void ReturnToMainMenu()

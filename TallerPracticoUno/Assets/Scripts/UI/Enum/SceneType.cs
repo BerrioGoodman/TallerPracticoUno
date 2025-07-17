@@ -3,7 +3,7 @@ using UnityEngine;
 public enum SceneType 
 {
     MainMenuScene,
-    Game,
+    GamePab,
     Credits,
     GameOver
 }
