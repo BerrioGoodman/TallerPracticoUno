@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.size
@@ -460,6 +460,14 @@ PrefabInstance:
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.data[7].name
       value: Rune
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 05951f0f8d1e5924991d68eb1eea1006, type: 3}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[8].name
+      value: Fire_Collision
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.data[0].clip
