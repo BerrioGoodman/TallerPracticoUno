@@ -4,7 +4,7 @@ public class ExternalForceManager
 {
     private float _windDecay;
     private float _normalDecay;
-    public ExternalForceManager(float normalDecay = 0.5f, float windDecay = 0.1f)
+    public ExternalForceManager(float normalDecay = 1f, float windDecay = 0.5f)
     {
         _normalDecay = normalDecay;
         _windDecay = windDecay;
