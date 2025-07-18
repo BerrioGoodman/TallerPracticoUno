@@ -59,12 +59,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ae73b4cf2533fa45b3507ba0898554c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3777088090085185073}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ae73b4cf2533fa45b3507ba0898554c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3157429318427970034}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ae73b4cf2533fa45b3507ba0898554c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7172138886538956623}
   m_SourcePrefab: {fileID: 100100000, guid: 5ae73b4cf2533fa45b3507ba0898554c, type: 3}
 --- !u!1 &9174436409915761751 stripped
 GameObject:
@@ -94,45 +88,3 @@ CapsuleCollider:
   m_Height: 8.847269
   m_Direction: 1
   m_Center: {x: -0.0061187744, y: 3.7085333, z: -0.2700987}
---- !u!65 &3157429318427970034
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9174436409915761751}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.532456, y: 4.8197365, z: 8.238599}
-  m_Center: {x: 0.019227266, y: 6.7440834, z: -0.7111287}
---- !u!135 &7172138886538956623
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9174436409915761751}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.29024792
-  m_Center: {x: 0.4404955, y: 2.434142, z: 0.08367252}
