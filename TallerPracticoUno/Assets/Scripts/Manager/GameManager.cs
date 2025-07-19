@@ -50,12 +50,24 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
         }
         else if (scene.name == SceneType.GameOver.ToString())
-        {          
+        {
             inputReader.SetUI();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else 
+        else if (scene.name == SceneType.Credits.ToString()) 
+        {
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (scene.name == SceneType.MainMenuScene.ToString())
+        {
+            inputReader.SetUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
         {
             inputReader.SetUI();
             Cursor.lockState = CursorLockMode.None;
@@ -116,29 +128,6 @@ public class GameManager : MonoBehaviour
 
         deliveredCount = 0;
     }
-
-
-    private void LoadPlayerPosition() 
-    {
-        string lastCheckpointID = SaveManager.Instance.GetLastCheckpointID();
-
-        GameObject checkpointObject = GameObject.Find(lastCheckpointID);
-
-        if (checkpointObject != null)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-
-                player.transform.position = checkpointObject.transform.position;
-                Debug.Log($"Jugador movido al checkpoint: {lastCheckpointID}");
-            }
-        }
-        else
-        {
-            Debug.LogError($"No se pudo encontrar el GameObject del checkpoint con ID: {lastCheckpointID}");
-        }
-    }
     public void RegisterDelivery()
     {
         deliveredCount++;
@@ -146,6 +135,9 @@ public class GameManager : MonoBehaviour
         if (deliveredCount >= totalToDeliver)
         {
             Debug.Log("To be continued...");
+            LoadScene(SceneType.Credits); //cargar la corutina escena de créditos
         }
     }
+
+    //Hacer coorutina para el cambio de escena
 }
