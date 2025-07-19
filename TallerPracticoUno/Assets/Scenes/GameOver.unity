@@ -669,7 +669,6 @@ GameObject:
   - component: {fileID: 1026221346}
   - component: {fileID: 1026221345}
   - component: {fileID: 1026221344}
-  - component: {fileID: 1026221347}
   m_Layer: 5
   m_Name: Reset Level
   m_TagString: Untagged
@@ -779,20 +778,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026221342}
   m_CullTransparentMesh: 1
---- !u!114 &1026221347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026221342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49997b399f2e728478f03683faded8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartButton: {fileID: 0}
-  mainMenuButton: {fileID: 0}
 --- !u!1 &1418354304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1101,6 @@ GameObject:
   - component: {fileID: 1877959908}
   - component: {fileID: 1877959907}
   - component: {fileID: 1877959906}
-  - component: {fileID: 1877959905}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1144,20 +1128,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -142}
   m_SizeDelta: {x: 252, y: 110}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1877959905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877959903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49997b399f2e728478f03683faded8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartButton: {fileID: 0}
-  mainMenuButton: {fileID: 0}
 --- !u!114 &1877959906
 MonoBehaviour:
   m_ObjectHideFlags: 0

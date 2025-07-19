@@ -135,7 +135,9 @@ public class GameManager : MonoBehaviour
         if (deliveredCount >= totalToDeliver)
         {
             Debug.Log("To be continued...");
-            LoadScene(SceneType.Credits);
+            LoadScene(SceneType.Credits); //cargar la corutina escena de créditos
         }
     }
+
+    //Hacer coorutina para el cambio de escena
 }
