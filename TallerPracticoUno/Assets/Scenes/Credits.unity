@@ -822,10 +822,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733519752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d76300e1884a91847b8f3715d3e5c0b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d35ce072ccbe0b4583bac2443a515f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverView: {fileID: 0}
+  creditsView: {fileID: 394945403}
 --- !u!1 &1822874482
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38, y: 230}
+  m_AnchoredPosition: {x: -38, y: 319}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822874484
@@ -884,7 +884,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Mariana Araque\nAlejandro Berrio\nJuan Pablo Rodriguez\nManuela Mu\xF1oz\nMariana
-    Lopez"
+    Lopez\nIsabela Duque\nYeferson Pulido"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

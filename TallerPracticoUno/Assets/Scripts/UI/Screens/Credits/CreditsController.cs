@@ -16,7 +16,7 @@ public class CreditsController : BaseController
 
     private void HandleBack()
     {
-        // El GameManager es el único que sabe cómo cambiar de escena.
+        GameManager.Instance.RestartGame();
         GameManager.Instance.LoadScene(SceneType.MainMenuScene);
     }
 }
