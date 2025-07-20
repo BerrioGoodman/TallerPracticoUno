@@ -629,15 +629,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0.0990566, g: 0.57554895, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2e1622797d1bede428f0b175d4dfd037, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 1461015951}
   - component: {fileID: 1461015950}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +833,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Mariana Araque\nAlejandro Berrio\nJuan Pablo Rodriguez\nManuela Mu\xF1oz\nMariana
-    Lopez\nIsabela Duque\nYeferson Pulido"
+    Lopez\nIsabela Duque\nYeferson Pulido\nAndres Felipe Casta\xF1eda"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7704d64e7d7253b419feaa595aa562c0, type: 2}
   m_sharedMaterial: {fileID: -4177745069802554202, guid: 7704d64e7d7253b419feaa595aa562c0, type: 2}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 1733519753}
   - component: {fileID: 1733519754}
   m_Layer: 5
-  m_Name: ---Game Over---
+  m_Name: ---Credits---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 1877959907}
   - component: {fileID: 1877959906}
   m_Layer: 5
-  m_Name: MainMenu
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,7 +999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 9, y: -137}
+  m_AnchoredPosition: {x: 9, y: -160}
   m_SizeDelta: {x: 252, y: 110}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1877959906

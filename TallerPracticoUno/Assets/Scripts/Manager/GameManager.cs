@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -135,9 +136,14 @@ public class GameManager : MonoBehaviour
         if (deliveredCount >= totalToDeliver)
         {
             Debug.Log("To be continued...");
-            LoadScene(SceneType.Credits); //cargar la corutina escena de créditos
+            StartCoroutine(WaitEndGame());
         }
     }
 
     //Hacer coorutina para el cambio de escena
+    private IEnumerator WaitEndGame()
+    {
+        yield return new WaitForSeconds(5f);
+        LoadScene(SceneType.Credits);
+    }
 }
