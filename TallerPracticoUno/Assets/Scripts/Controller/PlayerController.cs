@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     [Header("Teleportation")]
     [SerializeField] private float teleportTime;
     [SerializeField] private Transform startPoint;
-
+    [Header("Underwater Filter")]
+    [SerializeField] private GameObject underwaterQuad;
     private MovementHandler movementHandler;
     private ExternalForceManager forceManager;
     private Vector2 moveDirection;
@@ -169,6 +170,7 @@ public class PlayerController : MonoBehaviour
             currentMovement?.OnExit(this);
             SetMovement(MovementType.Underwater);
             underwater.OnEnter(this);
+            if (underwaterQuad != null) underwaterQuad.SetActive(true);//Activate underwater filter
         }
         else if (other.CompareTag("Wind"))
         {
@@ -185,6 +187,7 @@ public class PlayerController : MonoBehaviour
             underwater.OnExit(this);
             SetMovement(MovementType.Landed);
             landed.OnEnter(this);
+            if (underwaterQuad != null) underwaterQuad.SetActive(false);//Deactivate the filter
         }
         else if (other.CompareTag("Wind"))
         {
@@ -198,6 +201,10 @@ public class PlayerController : MonoBehaviour
                 Velocity += Vector3.up * Gravity * Time.deltaTime;
             }
         }
+    }
+    public void DisableUnderwaterFilter()
+    {
+        if (underwaterQuad != null) underwaterQuad.SetActive(false);//Deactivate filter with the portal
     }
     public void RechargeDurability()
     {
