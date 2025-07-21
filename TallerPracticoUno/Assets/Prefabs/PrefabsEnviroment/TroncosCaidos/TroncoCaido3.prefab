@@ -10,31 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 60.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6243106
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.024225235
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7805601
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.01937592
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -102.693
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 3.555
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       propertyPath: m_Name
@@ -59,6 +59,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 354314081862344739}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8599825063354735393}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7924029141424365404}
   m_SourcePrefab: {fileID: 100100000, guid: cb38633cf3541e44da63db5748c90c13, type: 3}
 --- !u!1 &117299423093621818 stripped
 GameObject:
@@ -88,3 +94,39 @@ CapsuleCollider:
   m_Height: 7.176874
   m_Direction: 0
   m_Center: {x: -0.36052132, y: 1.081656, z: -0.15448427}
+--- !u!135 &8599825063354735393
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117299423093621818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7924029141424365404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117299423093621818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce312f273aadca4fb94e04772fa873f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasMagic: 0
+  transition: 1
+  glowMultiplier: 0.1
