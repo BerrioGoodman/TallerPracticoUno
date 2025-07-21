@@ -24,8 +24,8 @@ public class PauseMenuController : BaseController
 
     private void HandleMainMenu()
     {
-        UIManager.Instance.Hide(ScreenType.SettingsMenu);
-        UIManager.Instance.Show<SettingsMenuController>(ScreenType.PauseMenu);
+        GameManager.Instance.TogglePause();
+        GameManager.Instance.ReturnToMainMenu();
     }
 
     private void HandleSettings()
@@ -38,4 +38,6 @@ public class PauseMenuController : BaseController
     {
         GameManager.Instance.TogglePause();
     }
+
+    
 }

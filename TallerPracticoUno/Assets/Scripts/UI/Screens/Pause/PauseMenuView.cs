@@ -19,5 +19,6 @@ public class PauseMenuView : BaseView
         resumeButton.onClick.AddListener(() => OnResumeClicked?.Invoke());
         settingsButton.onClick.AddListener(() => OnSettingsClicked?.Invoke());
         mainMenuButton.onClick.AddListener(() => OnMainMenuClicked?.Invoke());
+
     }
 }
