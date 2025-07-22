@@ -17,7 +17,8 @@ public class DeliveryPoint : MonoBehaviour
             pick.DeliverTo(dropPoint);
             AudioManager.Instance.PlaySFX("Rune");
             GameManager.Instance.RegisterDelivery();
-            CameraManager.Instance.FocusOnCinematicPoint();
+            CamerasManager.Instance.FocusOnDeliveryPoint(currentIndex);
+            //CameraManager.Instance.FocusOnCinematicPoint();
             currentIndex++;
         }
     }

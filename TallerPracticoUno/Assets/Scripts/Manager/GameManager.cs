@@ -133,13 +133,17 @@ public class GameManager : MonoBehaviour
     {
         deliveredCount++;
         Debug.Log($"Objects delivered: {deliveredCount} / {totalToDeliver}");
-        if (deliveredCount >= totalToDeliver)
+        /*if (deliveredCount >= totalToDeliver)
         {
             Debug.Log("To be continued...");
             StartCoroutine(WaitEndGame());
+        }*/
+        if (deliveredCount >= totalToDeliver)
+        {
+            Debug.Log("All deliveries complete. Activating final portal...");
+            CamerasManager.Instance.ActivateFinalPortal();//Activate panoramic scene
         }
     }
-
     //Hacer coorutina para el cambio de escena
     private IEnumerator WaitEndGame()
     {

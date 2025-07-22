@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.size
@@ -468,6 +468,14 @@ PrefabInstance:
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.data[8].name
       value: Fire_Collision
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a155e09a907c1154b811c53fa776be33, type: 3}
+    - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: sfxClips.Array.data[9].name
+      value: Portal
       objectReference: {fileID: 0}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: musicClips.Array.data[0].clip
