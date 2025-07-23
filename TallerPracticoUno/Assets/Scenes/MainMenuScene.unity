@@ -344,7 +344,7 @@ PrefabInstance:
     - target: {fileID: 3785917490556201099, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300002, guid: d589061c204ff4a4f8a8d2319b1bcd30, type: 2}
+      objectReference: {fileID: 2767101213777849723, guid: d589061c204ff4a4f8a8d2319b1bcd30, type: 2}
     - target: {fileID: 4133106817176493583, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: m_Name
       value: '---AudioManager--- '
@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6230960465978821294, guid: 077f16f427dc7074b826612c15827293, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3837733838460307697, guid: d589061c204ff4a4f8a8d2319b1bcd30, type: 2}
     - target: {fileID: 9173204102570512839, guid: 077f16f427dc7074b826612c15827293, type: 3}
       propertyPath: sfxClips.Array.size
       value: 10

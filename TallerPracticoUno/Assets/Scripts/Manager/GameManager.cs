@@ -30,6 +30,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+
+    private void Start()
+    {
+        settingsData.LoadSettings();
+        settingsData.ApplySettings();
     }
 
     private void OnEnable()
@@ -143,11 +150,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("All deliveries complete. Activating final portal...");
             CamerasManager.Instance.ActivateFinalPortal();//Activate panoramic scene
         }
-    }
-    //Hacer coorutina para el cambio de escena
-    private IEnumerator WaitEndGame()
-    {
-        yield return new WaitForSeconds(5f);
-        LoadScene(SceneType.Credits);
     }
 }
