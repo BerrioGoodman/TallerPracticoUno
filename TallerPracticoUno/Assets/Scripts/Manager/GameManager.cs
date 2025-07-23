@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         settingsData.LoadSettings();
         settingsData.ApplySettings();
+        AudioManager.Instance.PlayMusic("Ambience");
     }
 
     private void OnEnable()
@@ -54,7 +55,6 @@ public class GameManager : MonoBehaviour
         if (scene.name == SceneType.Game.ToString())
         {
             inputReader.SetGameplay();
-            AudioManager.Instance.PlayMusic("Ambience");
             UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
         }
         else if (scene.name == SceneType.GameOver.ToString())
