@@ -30,6 +30,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+
+    private void Start()
+    {
+        settingsData.LoadSettings();
+        settingsData.ApplySettings();
+        AudioManager.Instance.PlayMusic("Ambience");
     }
 
     private void OnEnable()
@@ -47,7 +55,6 @@ public class GameManager : MonoBehaviour
         if (scene.name == SceneType.Game.ToString())
         {
             inputReader.SetGameplay();
-            AudioManager.Instance.PlayMusic("Ambience");
             UIManager.Instance.Show<FlameHUDController>(ScreenType.FlameHUD);
         }
         else if (scene.name == SceneType.GameOver.ToString())
@@ -143,11 +150,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("All deliveries complete. Activating final portal...");
             CamerasManager.Instance.ActivateFinalPortal();//Activate panoramic scene
         }
-    }
-    //Hacer coorutina para el cambio de escena
-    private IEnumerator WaitEndGame()
-    {
-        yield return new WaitForSeconds(5f);
-        LoadScene(SceneType.Credits);
     }
 }

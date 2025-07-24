@@ -32,6 +32,7 @@ public class SettingsData_SO : ScriptableObject
 
     public void ApplySettings() 
     {
+        Debug.Log("Aplicando configuración de sonido...");
         SetVolume("MasterVolume", masterVolume);
         SetVolume("SFXVolume", sfxVolume);
         SetVolume("MusicVolume", musicVolume);
@@ -47,5 +48,6 @@ public class SettingsData_SO : ScriptableObject
         //usamos log porque hay que traducir el 0 a decibelios
         float dbValue = linearValue > 0.001f ? Mathf.Log10(linearValue) * 20f : -80f;
         mainMixer.SetFloat(parameterName, dbValue);
+        Debug.Log($"SetVolume({parameterName}) -> Linear: {linearValue}, dB: {dbValue}");
     }
 }
